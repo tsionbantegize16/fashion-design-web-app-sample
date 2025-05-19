@@ -7,18 +7,65 @@ import ContactSection from "./components/ContactSection";
 import Navigation from "./components/Navigation";
 import "./App.css";
 
+
+import Lenis from '@studio-freight/lenis';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading for 2.5 seconds
+    // Show loader for 2.5 seconds
     const timer = setTimeout(() => setLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
+  useEffect(() => {
+    // Initialize Lenis scrolling
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+      smoothTouch: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Setup ScrollTrigger to work with Lenis
+    ScrollTrigger.scrollerProxy(document.body, {
+      scrollTop(value) {
+        return arguments.length ? lenis.scrollTo(value) : window.scrollY;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+      pinType: document.body.style.transform ? 'transform' : 'fixed',
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+    ScrollTrigger.defaults({ scroller: document.body });
+    ScrollTrigger.refresh();
+
+    // Optional cleanup on unmount
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
+  if (loading) return <Loader />;
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden">
@@ -30,15 +77,12 @@ function App() {
         <section id="hero" className="w-full min-h-screen flex items-center justify-center">
           <HeroSection />
         </section>
-
         <section id="about" className="w-full min-h-screen flex items-center justify-center bg-gray-800">
           <AboutSection />
         </section>
-
         <section id="projects" className="w-full min-h-screen flex items-center justify-center bg-gray-900">
           <ProjectsSection />
         </section>
-
         <section id="contact" className="w-full min-h-screen flex items-center justify-center bg-gray-800">
           <ContactSection />
         </section>

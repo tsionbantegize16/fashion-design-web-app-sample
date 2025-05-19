@@ -1,0 +1,146 @@
+/* src/components/AboutSection.css */
+
+.aboutSection {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .aboutContainer {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.aboutText {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.aboutText h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #4299e1; /* blue */
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.aboutText h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 1rem;
+  border-left: 5px solid #4299e1;
+  padding-left: 10px;
+}
+
+.aboutText p {
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.aboutImage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.imageSlider {
+  position: relative;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+
+.sliderImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.sliderButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #4299e1;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  z-index: 10;
+  user-select: none;
+}
+
+.sliderButton:hover {
+  background-color: #2b6cb0; /* darker blue */
+}
+
+.sliderButton.prev {
+  left: 12px;
+}
+
+.sliderButton.next {
+  right: 12px;
+}
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  text-align: center;
+}
+
+.statItem {
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.statItem:hover {
+  transform: scale(1.05);
+}
+
+.statNumber {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #4299e1;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}

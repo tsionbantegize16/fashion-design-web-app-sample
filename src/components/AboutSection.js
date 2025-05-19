@@ -1,21 +1,95 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import crowImage from "../assets/images/crow.jpg";
+import "./AboutSection.css";
+
+const images = [
+  crowImage,
+  // Add more images here if you want to expand slider later
+];
 
 const AboutSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
   return (
-    <div className="bg-light-teal min-h-screen w-full flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-teal-dark mb-8">About Amanda Braga</h2>
-        <p className="text-gray-700 text-lg leading-relaxed">
-          Amanda Braga is a Brazilian designer specializing in beauty accessories and jewelry. Based in Miami, she
-          combines her cultural heritage with a passion for the arts and manual craftsmanship, which began at an early
-          age. Her work reflects a blend of Brazilian influences and contemporary design, emphasizing elegance and
-          individuality in her creations.
-        </p>
-        <p className="mt-6 text-gray-700 text-lg leading-relaxed">
-            This section effectively conveys Amanda's background and design philosophy, highlighting her dedication to creating unique, handcrafted pieces that resonate with her cultural roots and artistic vision.
-        </p>
+    <section id="about" className="aboutSection">
+      <div className="aboutContainer">
+        <div className="aboutText">
+          <h2>About Us</h2>
+          <h3>Our Story</h3>
+          <p>
+            Which your book, but more importantly when you get out the shower, dry your
+            book. It’s a cold world out there. Cloth talk, as the throne will be reset. Bless up. We
+            will never see them. Surround yourself with angels, positive energy...
+          </p>
+          <p>
+            Hammock talk come soon. Let me be clear, you have to make it through the
+            jungle to make it to paradise, that’s the key. Don’t ever fix your face. Live
+            amongst the clouds...
+          </p>
+          <p>
+            Learning is cool, but knowing is better, and knowing the key to success. The other
+            day the grass was brown, now it’s green because I ain’t give up. Never surrender...
+          </p>
+        </div>
+        <div className="aboutImage">
+          <div className="imageSlider">
+            <button
+              className="sliderButton prev"
+              onClick={prevSlide}
+              aria-label="Previous Image"
+            >
+              &lt;
+            </button>
+            <AnimatePresence initial={false}>
+              <motion.img
+                key={currentIndex}
+                src={images[currentIndex]}
+                alt="About Us Image"
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                className="sliderImage"
+              />
+            </AnimatePresence>
+            <button
+              className="sliderButton next"
+              onClick={nextSlide}
+              aria-label="Next Image"
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+      <div className="statsContainer">
+        <div className="statItem">
+          <div className="statNumber">06</div>
+          <div className="statLabel">Stores</div>
+        </div>
+        <div className="statItem">
+          <div className="statNumber">30</div>
+          <div className="statLabel">Exclusive Brands</div>
+        </div>
+        <div className="statItem">
+          <div className="statNumber">700</div>
+          <div className="statLabel">Quality Products</div>
+        </div>
+        <div className="statItem">
+          <div className="statNumber">1500</div>
+          <div className="statLabel">Happy Clients</div>
+        </div>
+      </div>
+    </section>
   );
 };
 
