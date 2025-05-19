@@ -1,18 +1,21 @@
 /* src/components/AboutSection.css */
 
 .aboutSection {
-  padding: 2rem;
-  background-color: #f9f9f9;
-  color: black;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 5rem;
+  background-color: #000; /* Black background */
+  color: #f0f0f0; /* Even lighter text */
+  overflow: hidden; /* To contain animations */
 }
 
 .aboutContainer {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 1200px;
+  gap: 5rem;
+  max-width: 1300px;
   margin: 0 auto;
+  padding: 4rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.05); /* Slightly more visible container background */
 }
 
 @media (min-width: 768px) {
@@ -23,34 +26,38 @@
 }
 
 .aboutText {
-  flex: 1;
-  padding: 1.5rem;
+  flex: 1.3;
+  padding: 4rem;
+  border-radius: 16px;
 }
 
-.aboutText h2 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #4299e1; /* blue */
-  margin-bottom: 1rem;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.aboutText .title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #ff6b6b; /* Another vibrant accent color */
+  margin-bottom: 2.5rem;
+  text-align: left;
+  letter-spacing: 1.8px;
+  text-shadow: 4px 4px 8px #000;
+  transform-origin: left; /* For scaleX animation */
 }
 
-.aboutText h3 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #000;
-  margin-bottom: 1rem;
-  border-left: 5px solid #4299e1;
-  padding-left: 10px;
+.aboutText .subtitle {
+  font-size: 2.2rem;
+  font-style: italic;
+  color: #aaa;
+  margin-bottom: 2rem;
+  text-align: left;
+  opacity: 0.9;
 }
 
-.aboutText p {
-  color: #222;
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
-  font-size: 1.1rem;
+.aboutText .paragraph {
+  color: #ccc;
+  line-height: 2;
+  margin-bottom: 2.5rem;
+  text-align: left;
+  font-weight: 400;
+  letter-spacing: 0.6px;
 }
 
 .aboutImage {
@@ -58,89 +65,55 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem;
+  padding: 4rem;
 }
 
-.imageSlider {
-  position: relative;
-  width: 90%;
-  max-width: 450px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  background-color: white;
-}
-
-.sliderImage {
+.aboutImage img {
   width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  user-select: none;
-  pointer-events: none;
+  max-width: 550px;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s ease-in-out;
 }
 
-.sliderButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #4299e1;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  cursor: pointer;
-  font-size: 1.6rem;
-  border-radius: 50%;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease;
-  z-index: 10;
-  user-select: none;
-}
-
-.sliderButton:hover {
-  background-color: #2b6cb0; /* darker blue */
-}
-
-.sliderButton.prev {
-  left: 12px;
-}
-
-.sliderButton.next {
-  right: 12px;
+.aboutImage:hover img {
+  transform: scale(1.05);
 }
 
 .statsContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 3rem;
-  padding: 1.5rem;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
-  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  margin-top: 6rem;
+  padding: 4rem;
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly more visible stats background */
+  border-radius: 20px;
 }
 
 .statItem {
-  padding: 1rem;
-  transition: transform 0.3s ease;
-  cursor: default;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* More dynamic hover */
 }
 
 .statItem:hover {
-  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-10px) scale(1.08);
 }
 
 .statNumber {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: #4299e1;
-  margin-bottom: 0.5rem;
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: #a2d2ff; /* Another vibrant accent color */
+  margin-bottom: 1.2rem;
+  text-shadow: 4px 4px 8px #000;
 }
 
 .statLabel {
-  font-size: 1rem;
-  color: black;
+  font-size: 1.3rem;
+  color: #eee;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
+  opacity: 0.9;
 }
