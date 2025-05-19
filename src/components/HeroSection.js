@@ -1,8 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './HeroSection.css';
 
-// Import your jewelry images
 import jewelry1 from '../assets/images/eagle1.jpg';
 import jewelry2 from '../assets/images/crow.jpg';
 
@@ -15,46 +14,50 @@ const HeroSection = () => {
   const containerRef = useRef(null);
   const [trail, setTrail] = useState([]);
   const imageIndexRef = useRef(0);
-  const animationFrame = useRef();
+  const timerRef = useRef(null);
+  const lastPosRef = useRef({ x: 0, y: 0 });
 
-  const addTrail = (x, y) => {
-    setTrail((prev) => [
-      ...prev,
-      {
-        id: Date.now(),
-        x,
-        y,
-        image: jewelryImages[imageIndexRef.current % jewelryImages.length],
-      },
-    ]);
+  const addImageToTrail = (x, y) => {
+    const id = Date.now();
+    const image = jewelryImages[imageIndexRef.current % jewelryImages.length];
+    setTrail((prev) => [...prev, { id, x, y, image }]);
     imageIndexRef.current++;
+
+    // Remove image after 3 seconds
+    setTimeout(() => {
+      setTrail((prev) => prev.filter((item) => item.id !== id));
+    }, 3000);
   };
 
-  const handleInteraction = (x, y) => {
-    addTrail(x, y);
+  const startTrailStream = (x, y) => {
+    if (timerRef.current) return;
+
+    let count = 0;
+    timerRef.current = setInterval(() => {
+      addImageToTrail(x, y);
+      count++;
+      if (count >= 5) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+    }, 150); // slightly slower interval
   };
 
   const handleMouseMove = (e) => {
-    if (animationFrame.current) cancelAnimationFrame(animationFrame.current);
-    animationFrame.current = requestAnimationFrame(() => {
-      handleInteraction(e.clientX, e.clientY);
-    });
+    const x = e.clientX;
+    const y = e.clientY;
+    const dx = Math.abs(x - lastPosRef.current.x);
+    const dy = Math.abs(y - lastPosRef.current.y);
+    if (dx > 15 || dy > 15) {
+      lastPosRef.current = { x, y };
+      startTrailStream(x, y);
+    }
   };
 
   const handleTouchMove = (e) => {
     const touch = e.touches[0];
-    handleInteraction(touch.clientX, touch.clientY);
+    handleMouseMove({ clientX: touch.clientX, clientY: touch.clientY });
   };
-
-  const handleScroll = () => {
-    const { x, y } = containerRef.current.getBoundingClientRect();
-    handleInteraction(window.innerWidth / 2, y + window.scrollY % 300);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <div
@@ -65,24 +68,27 @@ const HeroSection = () => {
     >
       <h1 className="hero-title">Amanda Braga</h1>
       <div className="jewelry-trail">
-        {trail.slice(-10).map((item) => (
-          <motion.img
-            key={item.id}
-            src={item.image}
-            alt="trail"
-            className="trail-image"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 0.9, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{
-              top: `${item.y - 40}px`,
-              left: `${item.x - 40}px`,
-              width: '80px',
-              height: '80px',
-            }}
-          />
-        ))}
+        <AnimatePresence>
+          {trail.map((item) => (
+            <motion.img
+              key={item.id}
+              src={item.image}
+              alt="trail"
+              className="trail-image"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              style={{
+                top: `${item.y - 50}px`,
+                left: `${item.x - 50}px`,
+                width: '100px',
+                height: '100px',
+                borderRadius: '0px',
+              }}
+            />
+          ))}
+        </AnimatePresence>
       </div>
     </div>
   );
