@@ -11,3 +11,54 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* In your main CSS file (e.g., index.css or App.css) */
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.5s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out 0.2s; /* Added a slight delay */
+}
+
+/* You might also need to define custom font families here if you're not using standard web fonts */
+/* For example:
+@font-face {
+  font-family: 'YourSerifFont';
+  src: url('../fonts/your-serif-font.woff2') format('woff2'),
+       url('../fonts/your-serif-font.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.font-serif {
+  font-family: 'YourSerifFont', serif;
+}
+*/
+/* In your main CSS file (e.g., index.css or App.css) */
+.text-outline-beige {
+  -webkit-text-stroke: 2px #F5F5DC; /* Beige outline (adjust color and thickness) */
+  color: transparent;
+}
