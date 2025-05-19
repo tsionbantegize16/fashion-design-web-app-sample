@@ -1,106 +1,150 @@
+/* Base styles */
+:root {
+  --primary-blue: #3b82f6;
+  --primary-blue-hover: #2563eb;
+  --bg-black: #121212;
+  --text-light: #e0e0e0;
+  --text-muted: #a1a1aa;
+  --input-bg: #1f2937;
+  --input-border: #374151;
+  --input-focus: #3b82f6;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-black);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-light);
+}
+
 /* Container */
 .contact-section {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f9fafb;
   padding: 3rem 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Box */
+/* Card */
 .contact-container {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  padding: 2.5rem 3rem;
-  max-width: 600px;
+  background-color: #1e293b; /* Dark navy */
+  border-radius: 12px;
+  padding: 3rem 4.5rem;   /* Increased horizontal padding */
+  max-width: 1300px;       /* Increased max width */
   width: 100%;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-container:hover {
+  box-shadow: 0 12px 36px rgba(59, 130, 246, 0.5);
 }
 
 /* Title */
 .contact-title {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #1f2937;
+  font-size: 2.75rem;
+  font-weight: 700;
   margin-bottom: 2rem;
   text-align: center;
+  color: var(--primary-blue);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 /* Form */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.8rem;
 }
 
-/* Form groups */
-.form-group label {
-  display: block;
+/* Labels */
+.form-label {
+  display: flex;
+  flex-direction: column;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #374151;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-light);
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1.5px solid #d1d5db;
-  border-radius: 6px;
+/* Inputs and textarea */
+.form-input,
+.form-textarea {
+  margin-top: 0.5rem;
+  padding: 0.85rem 1rem;
+  background-color: var(--input-bg);
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
   font-size: 1rem;
-  color: #111827;
-  transition: border-color 0.3s ease;
-  resize: vertical;
+  color: var(--text-light);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus,
+.form-textarea:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+  border-color: var(--input-focus);
+  box-shadow: 0 0 10px var(--input-focus);
 }
 
 /* Submit button */
 .submit-btn {
-  background-color: #2563eb;
+  margin-top: 1rem;
+  background-color: var(--primary-blue);
   color: white;
-  padding: 0.75rem 0;
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.9rem 0;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
 }
 
-.submit-btn:hover {
-  background-color: #1e40af;
+.submit-btn:hover:not(:disabled) {
+  background-color: var(--primary-blue-hover);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.6);
+}
+
+.submit-btn:disabled {
+  background-color: #4b5563;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 /* Alternative contact */
 .alt-contact {
-  margin-top: 1.5rem;
-  font-size: 0.875rem;
-  color: #6b7280;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--text-muted);
   text-align: center;
 }
 
-.alt-contact a {
-  color: #2563eb;
+.email-link {
+  color: var(--primary-blue);
   text-decoration: underline;
+  transition: color 0.3s ease;
 }
 
-.alt-contact a:hover {
-  color: #1e40af;
+.email-link:hover {
+  color: var(--primary-blue-hover);
 }
 
-/* Animation */
+/* Fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(25px);
   }
   to {
     opacity: 1;
@@ -109,5 +153,16 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.7s ease forwards;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .contact-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
 }

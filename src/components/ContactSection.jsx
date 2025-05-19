@@ -8,62 +8,89 @@ const ContactSection = () => {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Thank you for reaching out. I will get back to you shortly.");
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    // Simulate sending message (replace with API call)
+    setTimeout(() => {
+      alert("Thank you for reaching out! I will respond soon.");
+      setIsSubmitting(false);
+      setFormData({ name: "", email: "", message: "" });
+    }, 1500);
   };
 
   return (
     <section className="contact-section">
       <div className="contact-container animate-fadeIn">
-        <h2 className="contact-title">Contact Me</h2>
-        <form onSubmit={handleSubmit} className="contact-form">
-          <div className="form-group">
-            <label htmlFor="name">Full Name</label>
+        <h2 className="contact-title">Get In Touch</h2>
+        <form onSubmit={handleSubmit} className="contact-form" noValidate>
+          <label htmlFor="name" className="form-label">
+            Full Name
             <input
-              type="text"
               id="name"
               name="name"
+              type="text"
+              placeholder="Enter your full name"
               required
               value={formData.name}
               onChange={handleChange}
-              placeholder="Enter your full name"
+              disabled={isSubmitting}
+              className="form-input"
             />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
+          </label>
+
+          <label htmlFor="email" className="form-label">
+            Email Address
             <input
-              type="email"
               id="email"
               name="email"
+              type="email"
+              placeholder="you@example.com"
               required
               value={formData.email}
               onChange={handleChange}
-              placeholder="you@example.com"
+              disabled={isSubmitting}
+              className="form-input"
             />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
+          </label>
+
+          <label htmlFor="message" className="form-label">
+            Message
             <textarea
               id="message"
               name="message"
               rows="5"
+              placeholder="Type your message here..."
               required
               value={formData.message}
               onChange={handleChange}
-              placeholder="Type your message here..."
+              disabled={isSubmitting}
+              className="form-textarea"
             />
-          </div>
-          <button type="submit" className="submit-btn">Submit</button>
+          </label>
+
+          <button
+            type="submit"
+            className="submit-btn"
+            disabled={isSubmitting}
+            aria-busy={isSubmitting}
+          >
+            {isSubmitting ? "Sending..." : "Send Message"}
+          </button>
         </form>
+
         <p className="alt-contact">
-          Alternatively, feel free to reach out via email at{" "}
-          <a href="mailto:hello@amandabraga.com">hello@amandabraga.com</a>
+          Or email me at{" "}
+          <a href="mailto:hello@amandabraga.com" className="email-link">
+            hello@amandabraga.com
+          </a>
         </p>
       </div>
     </section>

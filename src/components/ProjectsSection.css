@@ -1,9 +1,26 @@
-.projects-section {
-  padding: 0;
-  margin: 0;
-  overflow: hidden; /* To hide any potential overflow from the moving images */
+:root {
+  --primary-blue: #3b82f6;
+  --primary-blue-hover: #2563eb;
+  --bg-black: #121212;
+  --input-border: #374151;
+  --input-focus: #3b82f6;
+  --text-light: #e0e0e0; /* Added this for light text */
 }
 
+/* Contact Section Container */
+.contact-section {
+  padding: 40px 20px;
+  margin: 0 auto;
+  background-color: var(--bg-black);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Navigation or header inside Contact Section */
 .top-nav {
   position: absolute;
   top: 20px;
@@ -13,75 +30,92 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  z-index: 10; /* Ensure it stays on top of the moving images */
+  z-index: 10;
 }
 
 .nav-button {
-  color: #fff;
+  color: var(--text-light);
   background: none;
   border: none;
   cursor: pointer;
-  fontSize: 1em;
+  font-size: 1em;
 }
 
 .nav-button:focus {
   outline: none;
 }
 
+/* Central content inside contact section */
 .central-content {
   text-align: center;
-  color: #fff;
+  max-width: 600px;
   margin-bottom: 30px;
-  z-index: 10; /* Ensure it stays on top */
+  z-index: 10;
 }
 
 .central-content h1 {
   font-size: 3em;
   font-weight: bold;
   margin-bottom: 10px;
+  color: var(--primary-blue);
 }
 
 .central-content p {
   font-size: 1.1em;
   line-height: 1.6;
+  margin: 0 auto;
+  color: var(--text-light);
 }
 
+/* Call to action button */
 .central-content button {
   margin-top: 20px;
   padding: 12px 30px;
-  background: #fff;
-  color: #000;
+  background: var(--primary-blue);
+  color: var(--bg-black);
   border: none;
-  borderRadius: 5px;
+  border-radius: 5px;
   cursor: pointer;
-  fontSize: 1em;
-  fontWeight: bold;
-  z-index: 10; /* Ensure it stays on top */
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  z-index: 10;
 }
 
+.central-content button:hover {
+  background-color: var(--primary-blue-hover);
+  color: var(--primary-blue);
+}
+
+/* Image arc container */
 .image-arc {
   position: relative;
   width: 360px;
   height: 250px;
+  margin: 0 auto 40px auto;
 }
 
+/* Images inside arc */
 .image-arc img {
   width: 70px;
   height: 70px;
-  borderRadius: 15px;
+  border-radius: 15px;
   position: absolute;
+  transition: transform 0.3s ease;
 }
 
 .image-arc img:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
+/* Floating bottom icon */
 .bottom-icon {
   position: absolute;
   bottom: 20px;
   right: 20px;
   font-size: 2em;
-  color: #fff;
+  color: var(--text-light);
   cursor: pointer;
-  z-index: 10; /* Ensure it stays on top */
+  z-index: 10;
 }

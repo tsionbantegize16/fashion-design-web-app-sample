@@ -1,11 +1,19 @@
+:root {
+  --primary-blue: #3b82f6;
+  --primary-blue-hover: #2563eb;
+  --bg-black: #121212;
+  --input-border: #374151;
+  --input-focus: #3b82f6;
+}
+
 .hero-section {
   min-height: 100vh;
-  background: linear-gradient(to right, #1f4037, #99f2c8);
+  background: var(--bg-black); /* replaced gradient with bg-black */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--primary-blue); /* use primary blue for text */
   position: relative;
   overflow: hidden;
   cursor: none;
@@ -14,7 +22,7 @@
 .hero-title {
   font-size: 4rem;
   font-weight: 700;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 10px rgba(38, 99, 230, 0.7); /* subtle blue shadow */
   z-index: 10;
 }
 
@@ -32,14 +40,8 @@
   position: absolute;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.trail-image {
-  position: absolute;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35); /* use primary blue color shadows */
   pointer-events: none;
   z-index: 5;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
