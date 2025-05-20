@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-import crow from "../assets/images/crow.jpg"; // Adjust path if needed
+import crow from "../assets/images/image1.jpg"; // Adjust path if needed
 import "./ProjectsSection.css";
 
 const ProjectsSection = () => {

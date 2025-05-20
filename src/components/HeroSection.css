@@ -1,47 +1,64 @@
-:root {
-  --primary-blue: #3b82f6;
-  --primary-blue-hover: #2563eb;
-  --bg-black: #121212;
-  --input-border: #374151;
-  --input-focus: #3b82f6;
-}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 
-.hero-section {
-  min-height: 100vh;
-  background: var(--bg-black); /* replaced gradient with bg-black */
+.hero-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #F44358, #F59D7E); /* Coral to Soft Coral */
+  cursor: default;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--primary-blue); /* use primary blue for text */
+  text-align: center;
+}
+
+.hero-content {
   position: relative;
-  overflow: hidden;
-  cursor: none;
+  z-index: 10;
+  color: #F8D0BF; /* Light Peach for main text */
 }
 
 .hero-title {
-  font-size: 4rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 10px rgba(38, 99, 230, 0.7); /* subtle blue shadow */
-  z-index: 10;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  color: #F8D0BF; /* Light Peach */
+  text-shadow: 1px 1px 4px #F44358; /* Coral shadow for contrast */
 }
 
-.jewelry-trail {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 5;
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #F7D897; /* Pale Yellow/Orange */
+  font-weight: 300;
 }
 
 .trail-image {
   position: absolute;
-  border-radius: 50%;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35); /* use primary blue color shadows */
+  border-radius: 16px;
   pointer-events: none;
-  z-index: 5;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+  transition: transform 0.3s ease-in-out;
+  border: 2px solid #A9D9D5; /* Light Teal/Blue border */
+}
+
+.trail-image:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-effect {
+  animation: float 2.5s ease-in-out infinite;
 }

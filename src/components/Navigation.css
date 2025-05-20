@@ -1,9 +1,38 @@
+:root {
+  --color-red-coral: #F44358;
+  --color-soft-coral: #F59D7E;
+  --color-light-peach: #F8D0BF;
+  --color-light-teal: #A9D9D5;
+  --color-pale-yellow: #F7D897;
+
+  --color-text-dark: #222222;  /* darker for better contrast */
+  --color-text-light: #FFFFFF;
+  --color-body-bg: var(--color-light-peach);
+
+  /* Navigation colors */
+  --color-bg: rgba(248, 208, 191, 0.95); /* slightly more opaque */
+  --color-primary-light: var(--color-red-coral); /* stronger coral red */
+  --color-glow: #F44358; /* strong glowing red */
+  --color-text: var(--color-text-dark);
+}
 .navigation {
   position: fixed;
   top: 50%;
-  left: 20px; /* Adjust as needed for subtle placement */
+  left: 20px;
   transform: translateY(-50%);
-  z-index: 20; /* Ensure it's above the hero content */
+  z-index: 110;
+
+  background: #F8D0BF; /* solid light peach background */
+  padding: 30px 24px;
+  border-radius: 20px;
+  /* remove backdrop-filter since background is solid */
+  box-shadow: 0 8px 24px rgba(244, 67, 88, 0.35); /* soft red coral shadow */
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  width: 220px;
+}
+
+.navigation:hover {
+  box-shadow: 0 0 30px 6px var(--color-glow);
 }
 
 .navigation nav ul {
@@ -12,21 +41,74 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-}
-
-.navigation nav ul li {
-  margin-bottom: 15px; /* Adjust spacing between links */
+  gap: 32px;  /* slightly bigger gap */
+  font-family: 'Playfair Display', serif;
 }
 
 .navigation nav ul li a {
-  color: white; /* Or your desired text color */
+  color: var(--color-text);
   text-decoration: none;
-  font-size: 1.1rem; /* Adjust font size */
-  opacity: 0.7; /* Subtle appearance */
-  transition: opacity 0.3s ease;
+  font-size: 1.6rem;   /* larger font size */
+  font-weight: 700;   /* bolder font */
+  letter-spacing: 1.2px;
+  padding: 14px 22px;  /* larger clickable area */
+  border-radius: 18px;
+  position: relative;
+  transition: 
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+}
+
+.navigation nav ul li a::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navigation nav ul li a:hover {
-  opacity: 1;
+  color: var(--color-primary-light);
+  transform: translateX(12px);
+  box-shadow: 0 0 16px var(--color-glow), 0 0 32px var(--color-glow);
+}
+
+.navigation nav ul li a:hover::before {
+  background-color: var(--color-primary-light);
+  box-shadow: 0 0 14px var(--color-primary-light);
+}
+
+.navigation nav ul li a.active {
+  color: var(--color-primary-light);
+  font-weight: 800;
+  box-shadow: 0 0 20px var(--color-glow), 0 0 40px var(--color-glow);
+  transform: translateX(12px);
+}
+
+.navigation nav ul li a.active::before {
+  background-color: var(--color-primary-light);
+  box-shadow: 0 0 20px var(--color-primary-light);
+}
+
+/* Subtle floating animation */
+.navigation nav ul li a {
+  animation: floatLink 4.5s ease-in-out infinite;
+}
+
+@keyframes floatLink {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(7px);
+  }
 }

@@ -2,123 +2,219 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-red-coral: #F44358;
+  --color-soft-coral: #F59D7E;
+  --color-light-peach: #F8D0BF;
+  --color-light-teal: #A9D9D5;
+  --color-pale-yellow: #F7D897;
 
-/* Reset & Layout */
-* {
+  --color-text-dark: #333333;
+  --color-text-light: #FFFFFF;
+  --color-body-bg: var(--color-light-peach);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-body-bg);
+  color: var(--color-text-dark);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body, .app-container {
-  width: 100%;
-  height: 100%;
-  font-family: 'Poppins', sans-serif;
-  background: #0f172a;
-  color: #fff;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+a {
+  color: var(--color-red-coral);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.app-header, .app-footer {
-  width: 100%;
-  padding: 1rem 2rem;
-  background: rgba(15, 23, 42, 0.9);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+a:hover {
+  color: var(--color-soft-coral);
+}
+
+.header {
+  background-color: var(--color-red-coral);
+  padding: 1.5rem 3rem;
+  color: var(--color-text-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(10px);
-  animation: slideInTop 0.7s ease-in-out forwards;
 }
 
-.app-main {
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-text-light);
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-menu li a {
+  color: var(--color-text-light);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-light-teal);
+  transform: scaleX(0);
+  transition: transform 0.3s ease-out;
+}
+
+.nav-menu li a:hover::after,
+.nav-menu li a.active::after {
+  transform: scaleX(1);
+}
+
+.hero-section {
+  background-color: var(--color-light-peach);
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
-  padding: 0;
-}
-
-.app-section {
-  padding: 4rem 2rem;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  animation: fadeIn 1s ease;
-  transition: background 0.4s ease;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
 }
 
-.app-section:hover {
-  background: rgba(255, 255, 255, 0.02);
-  transition: background 0.6s ease;
+.hero-title {
+  font-size: 4.5rem;
+  color: var(--color-light-peach);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  font-weight: 700;
 }
 
-/* === Image Effects === */
-img {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border-radius: 12px;
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+  max-width: 700px;
+  margin-bottom: 2.5rem;
 }
 
-img:hover {
-  transform: scale(1.05) rotate(1deg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-/* === Link / Button Hover Animation === */
-button, .link-button {
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  background: #38bdf8;
-  color: #000;
-  border: none;
+.hero-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: var(--color-light-teal);
+  color: var(--color-text-dark);
   border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.3);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(169, 217, 213, 0.4);
 }
 
-button:hover, .link-button:hover {
-  background: #0ea5e9;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.5);
+.hero-button:hover {
+  background-color: var(--color-soft-coral);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(245, 157, 126, 0.5);
 }
 
-/* === Section Titles (example) === */
-h1, h2, h3 {
-  transition: color 0.3s ease;
-  cursor: default;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: 4rem 3rem;
+  background-color: var(--color-pale-yellow);
 }
 
-h1:hover, h2:hover {
-  color: #38bdf8;
-}
-
-/* === CSS Keyframe Animations === */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInTop {
-  0% { transform: translateY(-100%); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes popUp {
-  0% { transform: scale(0.9); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-html.lenis {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.lenis.lenis-smooth [data-lenis-scroll-content] {
-  will-change: transform;
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
+.product-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-info {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.product-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-red-coral);
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  color: var(--color-soft-coral);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.add-to-cart-btn {
+  background-color: var(--color-light-teal);
+  color: var(--color-text-dark);
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: var(--color-red-coral);
+  color: #fff;
+}
+
+.footer {
+  background-color: var(--color-red-coral);
+  color: var(--color-text-light);
+  text-align: center;
+  padding: 2.5rem 2rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  .product-grid {
+    padding: 2rem 1rem;
+  }
+}
