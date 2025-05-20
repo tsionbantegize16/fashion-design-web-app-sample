@@ -7,7 +7,6 @@ import ContactSection from "./components/ContactSection";
 import Navigation from "./components/Navigation";
 import "./App.css";
 
-
 import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';

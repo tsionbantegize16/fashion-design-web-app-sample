@@ -26,16 +26,40 @@
 }
 
 .projects-section {
-  padding: 80px 20px 40px 20px;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background-color: var(--projects-bg-color);
-  color: var(--projects-text-color);
+  padding-top: 80px;
+}
+
+.project-title {
+  color: #fff;
+  font-size: 2.8rem;
+  margin-bottom: 120px;
+  padding-top: 0;
+  line-height: 1.1;
+  user-select: none;
+  position: relative;
+  z-index: 10;
+}
+
+.image-arc {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.image-arc img {
+  border-radius: 15px;
+  transition: all 0.6s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .projects-section h1 {
@@ -59,34 +83,8 @@
     color: var(--primary-pale-yellow);
 }
 
-.image-arc {
-  position: relative;
-  width: 900px;
-  height: 500px;
-  margin: 0 auto;
-  user-select: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-arc img {
-  border-radius: 10px;
-  object-fit: cover;
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
-  filter: drop-shadow(0 0 4px var(--projects-image-shadow-color));
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
 .image-arc img:hover {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 10px var(--projects-hover-shadow-color));
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  z-index: 20;
+  transform: scale(1.05);
 }
 
 /* Manual positioning for specific images within the arc (example for 5 images) */

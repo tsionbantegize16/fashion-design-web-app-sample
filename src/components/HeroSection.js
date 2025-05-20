@@ -68,24 +68,23 @@ const HeroSection = () => {
       <AnimatePresence>
         {trail.map((item) => (
           <motion.img
-  key={item.id}
-  src={item.image}
-  alt="fashion"
-  className="trail-image float-effect" // add a class
-  initial={{ opacity: 0, scale: 0.3, rotate: -10 }}
-  animate={{
-    opacity: 1,
-    scale: 1,
-    rotate: Math.random() * 10 - 5,
-  }}
-  exit={{ opacity: 0, scale: 0.5, rotate: 10 }}
-  transition={{ duration: 0.6, type: 'spring', bounce: 0.5 }}
-  style={{
-    top: `${item.y - 50}px`,
-    left: `${item.x - 50}px`,
-  }}
-/>
-
+            key={item.id}
+            src={item.image}
+            alt="fashion"
+            className="trail-image float-effect"
+            initial={{ opacity: 0, scale: 0.3, rotate: -10 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              rotate: Math.random() * 10 - 5,
+            }}
+            exit={{ opacity: 0, scale: 0.5, rotate: 10 }}
+            transition={{ duration: 0.6, type: 'spring', bounce: 0.5 }}
+            style={{
+              top: `${item.y - 50}px`,
+              left: `${item.x - 50}px`,
+            }}
+          />
         ))}
       </AnimatePresence>
     </div>
