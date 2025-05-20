@@ -75,8 +75,8 @@ const AboutSection = () => {
         {[
           { emoji: "💄", label: "Beauty Looks" },
           { emoji: "👗", label: "Fashion Styles" },
-          { emoji: "✨", label: "Unique Trends" },
-          { emoji: "🌟", label: "Confidence Boost" },
+          { emoji: "🔥", label: "Unique Trends" },
+          { emoji: "💪", label: "Confidence Boost" },
         ].map((item, index) => (
           <motion.div
             key={index}

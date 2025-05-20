@@ -1,124 +1,108 @@
 :root {
-  --primary-peach: #F8D0BF;
-  --primary-coral: #F44358;
+  /* Peach/Coral Palette (from image_aad781.png) */
+  --primary-red-coral: #F44358;
   --primary-soft-coral: #F59D7E;
-  --primary-teal: #A9D9D5;
-  --input-border: #374151;
-  --input-focus: var(--primary-teal);
-  --text-light: #e0e0e0;
+  --primary-light-peach: #F8D0BF;
+  --primary-light-teal: #A9D9D5;
+  --primary-pale-yellow: #F7D897;
+
+  /* Blue Palette (from image_a8f2de.png / image_a8ef23.png) - keeping them separate as they are a different aesthetic */
+  --color-darkest-blue: #3D52A0;
+  --color-medium-blue: #7091E6;
+  --color-light-blue: #8697C4;
+  --color-very-light-blue: #ADBBDA;
+  --color-pale-lavender: #FDF8F5;
+
+  /* Using colors from the peach/coral palette for this section */
+  --projects-text-color: #333; /* Dark text for contrast on light backgrounds */
+  --projects-heading-color: var(--primary-red-coral); /* Red/Coral for main heading */
+  --projects-hover-shadow-color: var(--primary-soft-coral); /* Soft Coral for hover shadow */
+  --projects-image-shadow-color: var(--primary-light-teal); /* Light Teal for default image shadow */
+  --projects-bg-color: var(--primary-light-peach); /* Light Peach for section background */
+
+  --input-border: #374151; /* Keeping original input border for now, assuming not part of this section */
+  --input-focus: var(--primary-light-teal); /* Keeping original input focus for now */
+  --text-light: #e0e0e0; /* Keeping original light text for dark backgrounds */
 }
 
-/* Contact Section Container */
-.contact-section {
-  padding: 20px 10px;   /* reduced padding */
-  margin: 0 auto;
-  background-color: var(--primary-peach);
-  color: #374151;
-  min-height: 80vh;     /* smaller height */
+.projects-section {
+  padding: 80px 20px 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
   position: relative;
+  overflow: hidden;
+  background-color: var(--projects-bg-color);
+  color: var(--projects-text-color);
 }
 
-/* Navigation or header inside Contact Section */
-.top-nav {
-  position: absolute;
-  top: 10px;     /* reduced distance from top */
-  left: 10px;
-  right: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
+.projects-section h1 {
+  margin-top: 0;
+  /* INCREASED MARGIN-BOTTOM TO CREATE MORE GAP */
+  margin-bottom: 80px; /* Increased from 50px to 80px for a larger gap */
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--projects-heading-color);
   z-index: 10;
-}
-
-.nav-button {
-  color: var(--primary-coral);
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 0.9em;   /* smaller font */
-}
-
-.nav-button:focus {
-  outline: none;
-}
-
-/* Central content inside contact section */
-.central-content {
+  position: relative;
   text-align: center;
-  max-width: 500px;    /* narrower max width */
-  margin-bottom: 20px; /* less margin */
-  z-index: 10;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
 }
 
-.central-content h1 {
-  font-size: 2.2em;   /* smaller font */
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: var(--primary-coral);
+.projects-section h1 .sparkle {
+    position: absolute;
+    top: 15px;
+    left: -40px;
+    font-size: 2.5rem;
+    color: var(--primary-pale-yellow);
 }
 
-.central-content p {
-  font-size: 1em;    /* smaller font */
-  line-height: 1.4;  /* tighter line height */
-  margin: 0 auto;
-  color: #374151;
-}
-
-/* Call to action button */
-.central-content button {
-  margin-top: 15px;
-  padding: 10px 25px;  /* smaller padding */
-  background: var(--primary-soft-coral);
-  color: #374151;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9em;   /* smaller font */
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  z-index: 10;
-}
-
-.central-content button:hover {
-  background-color: var(--primary-coral);
-  color: var(--primary-peach);
-}
-
-/* Image arc container */
 .image-arc {
   position: relative;
-  width: 320px;      /* smaller width */
-  height: 220px;     /* smaller height */
-  margin: 0 auto 30px auto; /* less bottom margin */
+  width: 900px;
+  height: 500px;
+  margin: 0 auto;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Images inside arc */
 .image-arc img {
-  width: 60px;      /* smaller images */
-  height: 60px;
-  border-radius: 12px;
+  border-radius: 10px;
+  object-fit: cover;
   position: absolute;
-  transition: transform 0.3s ease;
-  filter: drop-shadow(0 0 3px var(--primary-teal));
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 4px var(--projects-image-shadow-color));
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .image-arc img:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-  filter: drop-shadow(0 0 8px var(--primary-coral));
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 10px var(--projects-hover-shadow-color));
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  z-index: 20;
 }
 
-/* Floating bottom icon */
-.bottom-icon {
-  position: absolute;
-  bottom: 15px;   /* closer to bottom */
-  right: 15px;
-  font-size: 1.5em; /* smaller icon */
-  color: var(--primary-coral);
-  cursor: pointer;
-  z-index: 10;
+/* Manual positioning for specific images within the arc (example for 5 images) */
+/* Adjust these 'top' values as needed to maintain the arc and ensure no overlap */
+.image-arc img:nth-child(1) { top: 0; left: 10%; transform: rotate(-10deg); width: 180px; height: 180px; }
+.image-arc img:nth-child(2) { top: 80px; left: -5%; transform: rotate(5deg); }
+.image-arc img:nth-child(3) { top: 80px; right: -5%; transform: rotate(-5deg); }
+.image-arc img:nth-child(4) { bottom: 0; left: 20%; transform: rotate(15deg); }
+.image-arc img:nth-child(5) { bottom: 0; right: 20%; transform: rotate(-15deg); }
+
+/* Example for the main central image if it's the largest */
+.image-arc img.main-center {
+  width: 250px;
+  height: 250px;
+  top: 50px; /* You might need to increase this if the arc moves down */
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+  z-index: 15;
 }

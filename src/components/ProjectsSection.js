@@ -16,8 +16,8 @@ import imageExtra3 from "../assets/images/image3.jpg";
 import "./ProjectsSection.css";
 
 const ProjectsSection = () => {
-  const arcRadius = 200;
-  const imageSize = 80;
+  const arcRadius = 180;  // smaller radius to avoid overlap with text
+  const imageSize = 100;   // smaller image size
 
   const images = [
     imageBeauty,
@@ -63,13 +63,21 @@ const ProjectsSection = () => {
         position: "relative",
         overflow: "hidden",
         opacity: 0,
+        paddingTop: "30px", // reduced top padding to bring text closer to top
       }}
       animate={controls}
     >
       <motion.h1
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
-        style={{ color: "#fff", fontSize: "3rem", marginBottom: "30px" }}
+        style={{ 
+          color: "#fff", 
+          fontSize: "2.8rem", 
+          marginBottom: "20px", // smaller margin bottom
+          paddingTop: 0,
+          lineHeight: 1.1,
+          userSelect: "none",
+        }}
       >
         ✨ Project Gallery
       </motion.h1>
@@ -80,6 +88,7 @@ const ProjectsSection = () => {
           position: "relative",
           width: arcRadius * 2 + imageSize,
           height: arcRadius + imageSize / 2,
+          marginBottom: "40px", // add some spacing under the images
         }}
       >
         {images.map((src, index) => {
@@ -99,7 +108,7 @@ const ProjectsSection = () => {
                 left: x,
                 top: y,
                 opacity: isActive ? 1 : 0.5,
-                scale: isActive ? 1.3 : 0.8,
+                scale: isActive ? 1.2 : 0.8,
                 rotate: isActive ? 360 : 0,
                 filter: isActive ? "drop-shadow(0 0 10px #fff)" : "none",
                 transition: { duration: 0.6 },
@@ -112,7 +121,7 @@ const ProjectsSection = () => {
                 objectFit: "cover",
                 cursor: "pointer",
               }}
-              whileHover={{ scale: 1.4 }}
+              whileHover={{ scale: 1.3 }}
               onClick={() => setActiveIndex(index)}
             />
           );
