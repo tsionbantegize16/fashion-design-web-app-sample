@@ -33,26 +33,22 @@ const AboutSection = () => {
       animate={{ opacity: 1, transition: { duration: 0.8 } }}
     >
       <div className="aboutContainer">
-        <motion.div className="aboutText" variants={textVariants} initial="initial" animate="animate">
-          <h2 className="title">Our Artistic Journey</h2>
-          <h3 className="subtitle">A Symphony of Creativity</h3>
+        <motion.div
+          className="aboutText"
+          variants={textVariants}
+          initial="initial"
+          animate="animate"
+        >
+          <h2 className="title">Our Fashion & Makeup</h2>
+          <h3 className="subtitle">Style Meets Confidence</h3>
           <p className="paragraph">
-            Step into our world, where every creation is a brushstroke on the canvas of imagination.
-            We are driven by a passion for beauty in its myriad forms, from the subtle dance of colors
-            to the intricate poetry of textures. Our journey is a constant exploration, a quest to
-            transform the ordinary into the extraordinary.
+            Discover fashion and beauty crafted to express your unique style and boost confidence.
           </p>
           <p className="paragraph">
-            Inspired by the fluid lines of nature and the sharp precision of geometry, we weave together
-            unique narratives in every piece. Each design is a testament to the meticulous craft and
-            the boundless curiosity that fuels our artistic spirit. We invite you to discover the stories
-            embedded within our creations.
+            From trends to timeless looks, we inspire creativity and natural beauty.
           </p>
           <p className="paragraph">
-            Traveling the globe, immersing ourselves in diverse cultures, and absorbing the essence
-            of different languages – these are the threads that enrich our creative tapestry. This
-            exploration is not just a pastime; it's a vital source of inspiration that breathes life
-            into our artistic vision.
+            Celebrate diversity and express yourself with our curated styles.
           </p>
         </motion.div>
         <motion.div
@@ -63,15 +59,17 @@ const AboutSection = () => {
           whileHover="hover"
         >
           <div className="imageSlider">
-            {/* Replace with your actual image and consider a more artistic visual */}
             <img
-              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXJ0aXN0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
-              alt="Artistic Representation"
+              src="https://www.bellanaijastyle.com/wp-content/uploads/2019/05/30Divalukky-Presents-22The-Movement-of-Modern-Whimsical-Romance.jpeg"
+              alt="Fashion and Makeup"
+              width={400}
+              height={300}
+              style={{ objectFit: "cover" }}
             />
-            {/* You could add more images and slider functionality here */}
           </div>
         </motion.div>
       </div>
+
       <motion.div
         className="statsContainer"
         variants={statsVariants}
@@ -79,20 +77,20 @@ const AboutSection = () => {
         animate="animate"
       >
         <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
-          <div className="statNumber">∞</div>
-          <div className="statLabel">Inspiration</div>
+          <div className="statNumber">💄</div>
+          <div className="statLabel">Beauty Looks</div>
         </motion.div>
         <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
-          <div className="statNumber">🎨</div>
-          <div className="statLabel">Creative Visions</div>
+          <div className="statNumber">👗</div>
+          <div className="statLabel">Fashion Styles</div>
         </motion.div>
         <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
           <div className="statNumber">✨</div>
-          <div className="statLabel">Unique Expressions</div>
+          <div className="statLabel">Unique Trends</div>
         </motion.div>
         <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
-          <div className="statNumber">🗺️</div>
-          <div className="statLabel">Global Influences</div>
+          <div className="statNumber">🌟</div>
+          <div className="statLabel">Confidence Boost</div>
         </motion.div>
       </motion.div>
     </motion.section>

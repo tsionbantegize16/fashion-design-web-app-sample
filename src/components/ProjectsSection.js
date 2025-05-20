@@ -1,19 +1,40 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-import crow from "../assets/images/image1.jpg"; // Adjust path if needed
+
+import imageBeauty from "../assets/images/image2.jpg";
+import imageFashion from "../assets/images/image3.jpg";
+import imageTrends from "../assets/images/image4.jpg";
+import imageConfidence from "../assets/images/image5.jpg";
+import imageStyle from "../assets/images/image6.jpg";
+import imageCreativity from "../assets/images/image5.jpg"; // fixed import
+
+// New images added
+import imageExtra1 from "../assets/images/image1.jpg";
+import imageExtra2 from "../assets/images/image2.jpg";
+import imageExtra3 from "../assets/images/image3.jpg";
+
 import "./ProjectsSection.css";
 
 const ProjectsSection = () => {
   const arcRadius = 200;
   const imageSize = 80;
-  const imageCount = 10;
-  const images = Array(imageCount).fill(crow); // Use same image for now
+
+  const images = [
+    imageBeauty,
+    imageFashion,
+    imageTrends,
+    imageConfidence,
+    imageStyle,
+    imageCreativity,
+    imageExtra1,
+    imageExtra2,
+    imageExtra3,
+  ];
 
   const containerRef = useRef(null);
   const controls = useAnimation();
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Animate opacity on mount
   useEffect(() => {
     controls.start({
       opacity: 1,
@@ -21,7 +42,6 @@ const ProjectsSection = () => {
     });
   }, [controls]);
 
-  // Auto-rotate images every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % images.length);
@@ -47,7 +67,6 @@ const ProjectsSection = () => {
       }}
       animate={controls}
     >
-      {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
@@ -56,7 +75,6 @@ const ProjectsSection = () => {
         ✨ Project Gallery
       </motion.h1>
 
-      {/* Circular Image Arc */}
       <div
         className="image-arc"
         style={{
@@ -66,7 +84,9 @@ const ProjectsSection = () => {
         }}
       >
         {images.map((src, index) => {
-          const angle = ((index - activeIndex) / images.length) * Math.PI * 2 - Math.PI / 2;
+          const angle =
+            ((index - activeIndex) / images.length) * Math.PI * 2 -
+            Math.PI / 2;
           const x = arcRadius * Math.cos(angle) + arcRadius - imageSize / 2;
           const y = arcRadius * Math.sin(angle) + arcRadius - imageSize / 2;
           const isActive = index === activeIndex;
@@ -75,7 +95,7 @@ const ProjectsSection = () => {
             <motion.img
               key={index}
               src={src}
-              alt={`Crow ${index + 1}`}
+              alt={`Project ${index + 1}`}
               initial={{ opacity: 0 }}
               animate={{
                 left: x,
@@ -100,25 +120,6 @@ const ProjectsSection = () => {
           );
         })}
       </div>
-
-      {/* Bottom Call to Action */}
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        style={{
-          marginTop: "50px",
-          padding: "12px 28px",
-          fontSize: "1.1rem",
-          background: "#fff",
-          color: "#000",
-          border: "none",
-          borderRadius: "8px",
-          cursor: "pointer",
-          fontWeight: "bold",
-          boxShadow: "0 4px 10px rgba(255,255,255,0.2)",
-        }}
-      >
-        Discover More
-      </motion.button>
     </motion.div>
   );
 };

@@ -1,16 +1,21 @@
+/* Import Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
 :root {
-  --primary-blue: #3b82f6;
-  --primary-blue-hover: #2563eb;
-  --bg-black: #121212;
-  --input-border: #374151;
-  --input-focus: #3b82f6;
+  --peach-light: #F8D0BF;
+  --coral-red: #F44358;
+  --soft-coral: #F59D7E;
+  --teal-light: #A9D9D5;
+  --warm-yellow: #F7D897;
+  --text-dark: #3b2f2f;
 }
 
 .aboutSection {
   padding: 5rem;
-  background-color: var(--bg-black); /* Black background */
-  color: var(--primary-blue-hover); /* Lighter text but using primary-blue-hover */
+  background: linear-gradient(135deg, var(--peach-light), var(--soft-coral));
+  color: var(--text-dark);
   overflow: hidden;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .aboutContainer {
@@ -20,8 +25,10 @@
   max-width: 1300px;
   margin: 0 auto;
   padding: 4rem;
-  border-radius: 20px;
-  background-color: rgba(59, 130, 246, 0.05); /* Slightly visible container background using primary blue */
+  border-radius: 30px;
+  background: rgba(255 255 255 / 0.7);
+  box-shadow: 0 15px 40px rgba(244, 67, 88, 0.3);
+  backdrop-filter: blur(8px);
 }
 
 @media (min-width: 768px) {
@@ -39,31 +46,33 @@
 
 .aboutText .title {
   font-size: 4rem;
-  font-weight: bold;
-  color: var(--primary-blue); /* Primary blue */
+  font-weight: 900;
+  color: var(--coral-red);
   margin-bottom: 2.5rem;
-  text-align: left;
-  letter-spacing: 1.8px;
-  text-shadow: 4px 4px 8px var(--bg-black); /* Use bg-black for shadow */
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 8px var(--warm-yellow);
   transform-origin: left;
+  font-family: 'Poppins', sans-serif;
 }
 
 .aboutText .subtitle {
   font-size: 2.2rem;
   font-style: italic;
-  color: var(--input-border); /* muted input-border color */
+  color: var(--teal-light);
   margin-bottom: 2rem;
-  text-align: left;
   opacity: 0.9;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
 }
 
 .aboutText .paragraph {
-  color: var(--primary-blue-hover);
+  color: var(--text-dark);
   line-height: 2;
   margin-bottom: 2.5rem;
-  text-align: left;
   font-weight: 400;
   letter-spacing: 0.6px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .aboutImage {
@@ -77,13 +86,18 @@
 .aboutImage img {
   width: 100%;
   max-width: 550px;
-  border-radius: 20px;
-  box-shadow: 0 16px 40px rgba(18, 18, 18, 0.8); /* Use bg-black rgba for shadow */
-  transition: transform 0.3s ease-in-out;
+  height: 400px;           /* fixed height */
+  object-fit: cover;       /* crop to fill container */
+  border-radius: 25px;
+  box-shadow: 0 16px 40px rgba(244, 67, 88, 0.5);
+  transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+  filter: drop-shadow(0 8px 15px rgba(180, 60, 60, 0.5));
 }
 
 .aboutImage:hover img {
-  transform: scale(1.05);
+  transform: scale(1.07) rotate(2deg);
+  box-shadow: 0 25px 60px rgba(244, 67, 88, 0.7);
+  filter: drop-shadow(0 10px 25px rgba(180, 60, 60, 0.7));
 }
 
 .statsContainer {
@@ -92,34 +106,41 @@
   gap: 3rem;
   margin-top: 6rem;
   padding: 4rem;
-  background-color: rgba(59, 130, 246, 0.1); /* Primary blue with transparency */
-  border-radius: 20px;
+  background: linear-gradient(90deg, var(--soft-coral), var(--warm-yellow));
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(244, 67, 88, 0.25);
 }
 
 .statItem {
   padding: 2.5rem;
   text-align: center;
-  border-radius: 16px;
+  border-radius: 20px;
+  background-color: rgba(255 255 255 / 0.8);
+  cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 6px 12px rgba(244, 67, 88, 0.15);
 }
 
 .statItem:hover {
-  background-color: rgba(59, 130, 246, 0.18); /* Primary blue hover transparent */
-  transform: translateY(-10px) scale(1.08);
+  background-color: var(--peach-light);
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 0 15px 25px rgba(244, 67, 88, 0.4);
 }
 
 .statNumber {
   font-size: 4.5rem;
-  font-weight: bold;
-  color: var(--primary-blue); /* primary blue */
+  font-weight: 900;
+  color: var(--coral-red);
   margin-bottom: 1.2rem;
-  text-shadow: 4px 4px 8px var(--bg-black);
+  text-shadow: 3px 3px 8px var(--warm-yellow);
+  font-family: 'Poppins', sans-serif;
 }
 
 .statLabel {
   font-size: 1.3rem;
-  color: var(--primary-blue-hover);
+  color: var(--teal-light);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.9;
+  letter-spacing: 1.5px;
+  opacity: 0.85;
+  font-family: 'Poppins', sans-serif;
 }

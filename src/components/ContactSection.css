@@ -1,18 +1,17 @@
-/* Base styles */
 :root {
-  --primary-blue: #3b82f6;
-  --primary-blue-hover: #2563eb;
-  --bg-black: #121212;
-  --text-light: #e0e0e0;
-  --text-muted: #a1a1aa;
-  --input-bg: #1f2937;
+  --primary-peach: #F8D0BF;
+  --primary-coral: #F44358;
+  --primary-soft-coral: #F59D7E;
+  --primary-teal: #A9D9D5;
   --input-border: #374151;
-  --input-focus: #3b82f6;
+  --input-focus: var(--primary-teal);
+  --text-light: #e0e0e0;
 }
 
+/* Body */
 body {
   margin: 0;
-  background-color: var(--bg-black);
+  background-color: var(--primary-peach);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-light);
 }
@@ -28,17 +27,18 @@ body {
 
 /* Card */
 .contact-container {
-  background-color: #1e293b; /* Dark navy */
+  background-color: var(--primary-coral);
   border-radius: 12px;
-  padding: 3rem 4.5rem;   /* Increased horizontal padding */
-  max-width: 1300px;       /* Increased max width */
+  padding: 3rem 4.5rem;
+  max-width: 1300px;
   width: 100%;
-  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 24px rgba(244, 67, 88, 0.3);
   transition: box-shadow 0.3s ease;
+  color: var(--text-light);
 }
 
 .contact-container:hover {
-  box-shadow: 0 12px 36px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 12px 36px rgba(244, 67, 88, 0.5);
 }
 
 /* Title */
@@ -47,7 +47,7 @@ body {
   font-weight: 700;
   margin-bottom: 2rem;
   text-align: center;
-  color: var(--primary-blue);
+  color: var(--primary-soft-coral);
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
@@ -74,7 +74,7 @@ body {
 .form-textarea {
   margin-top: 0.5rem;
   padding: 0.85rem 1rem;
-  background-color: var(--input-bg);
+  background-color: var(--primary-peach);
   border: 2px solid var(--input-border);
   border-radius: 8px;
   font-size: 1rem;
@@ -85,7 +85,7 @@ body {
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: var(--text-muted);
+  color: var(--primary-soft-coral);
 }
 
 .form-input:focus,
@@ -98,26 +98,26 @@ body {
 /* Submit button */
 .submit-btn {
   margin-top: 1rem;
-  background-color: var(--primary-blue);
-  color: white;
+  background-color: var(--primary-teal);
+  color: var(--text-light);
   font-size: 1.25rem;
   font-weight: 700;
   padding: 0.9rem 0;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 5px 15px rgba(169, 217, 213, 0.4);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   user-select: none;
 }
 
 .submit-btn:hover:not(:disabled) {
-  background-color: var(--primary-blue-hover);
-  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.6);
+  background-color: var(--primary-soft-coral);
+  box-shadow: 0 8px 22px rgba(245, 157, 126, 0.6);
 }
 
 .submit-btn:disabled {
-  background-color: #4b5563;
+  background-color: #9CA3AF;
   cursor: not-allowed;
   box-shadow: none;
 }
@@ -126,18 +126,18 @@ body {
 .alt-contact {
   margin-top: 2rem;
   font-size: 1rem;
-  color: var(--text-muted);
+  color: var(--primary-soft-coral);
   text-align: center;
 }
 
 .email-link {
-  color: var(--primary-blue);
+  color: var(--primary-teal);
   text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .email-link:hover {
-  color: var(--primary-blue-hover);
+  color: var(--primary-soft-coral);
 }
 
 /* Fade-in animation */
