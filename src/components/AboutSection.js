@@ -1,3 +1,4 @@
+// AboutSection.jsx
 import React from "react";
 import "./AboutSection.css";
 import { motion } from "framer-motion";
@@ -58,15 +59,10 @@ const AboutSection = () => {
           animate="animate"
           whileHover="hover"
         >
-          <div className="imageSlider">
-            <img
-              src="https://www.bellanaijastyle.com/wp-content/uploads/2019/05/30Divalukky-Presents-22The-Movement-of-Modern-Whimsical-Romance.jpeg"
-              alt="Fashion and Makeup"
-              width={400}
-              height={300}
-              style={{ objectFit: "cover" }}
-            />
-          </div>
+          <img
+            src="https://www.bellanaijastyle.com/wp-content/uploads/2019/05/30Divalukky-Presents-22The-Movement-of-Modern-Whimsical-Romance.jpeg"
+            alt="Fashion and Makeup"
+          />
         </motion.div>
       </div>
 
@@ -76,22 +72,22 @@ const AboutSection = () => {
         initial="initial"
         animate="animate"
       >
-        <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
-          <div className="statNumber">💄</div>
-          <div className="statLabel">Beauty Looks</div>
-        </motion.div>
-        <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
-          <div className="statNumber">👗</div>
-          <div className="statLabel">Fashion Styles</div>
-        </motion.div>
-        <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
-          <div className="statNumber">✨</div>
-          <div className="statLabel">Unique Trends</div>
-        </motion.div>
-        <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
-          <div className="statNumber">🌟</div>
-          <div className="statLabel">Confidence Boost</div>
-        </motion.div>
+        {[
+          { emoji: "💄", label: "Beauty Looks" },
+          { emoji: "👗", label: "Fashion Styles" },
+          { emoji: "✨", label: "Unique Trends" },
+          { emoji: "🌟", label: "Confidence Boost" },
+        ].map((item, index) => (
+          <motion.div
+            key={index}
+            className="statItem"
+            variants={statItemVariants}
+            whileHover="hover"
+          >
+            <div className="statNumber">{item.emoji}</div>
+            <div className="statLabel">{item.label}</div>
+          </motion.div>
+        ))}
       </motion.div>
     </motion.section>
   );

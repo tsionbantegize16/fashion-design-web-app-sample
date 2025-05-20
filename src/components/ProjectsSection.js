@@ -54,7 +54,6 @@ const ProjectsSection = () => {
       ref={containerRef}
       className="projects-section"
       style={{
-        backgroundColor: "#000",
         minHeight: "100vh",
         width: "100%",
         display: "flex",
@@ -85,8 +84,7 @@ const ProjectsSection = () => {
       >
         {images.map((src, index) => {
           const angle =
-            ((index - activeIndex) / images.length) * Math.PI * 2 -
-            Math.PI / 2;
+            ((index - activeIndex) / images.length) * Math.PI * 2 - Math.PI / 2;
           const x = arcRadius * Math.cos(angle) + arcRadius - imageSize / 2;
           const y = arcRadius * Math.sin(angle) + arcRadius - imageSize / 2;
           const isActive = index === activeIndex;

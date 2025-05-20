@@ -1,3 +1,5 @@
+/* AboutSection.css */
+
 /* Import Poppins font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
 
@@ -10,12 +12,15 @@
   --text-dark: #3b2f2f;
 }
 
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
 .aboutSection {
   padding: 5rem;
   background: linear-gradient(135deg, var(--peach-light), var(--soft-coral));
   color: var(--text-dark);
   overflow: hidden;
-  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .aboutContainer {
@@ -26,7 +31,7 @@
   margin: 0 auto;
   padding: 4rem;
   border-radius: 30px;
-  background: rgba(255 255 255 / 0.7);
+  background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 15px 40px rgba(244, 67, 88, 0.3);
   backdrop-filter: blur(8px);
 }
@@ -52,7 +57,6 @@
   letter-spacing: 2px;
   text-shadow: 3px 3px 8px var(--warm-yellow);
   transform-origin: left;
-  font-family: 'Poppins', sans-serif;
 }
 
 .aboutText .subtitle {
@@ -63,7 +67,6 @@
   opacity: 0.9;
   letter-spacing: 1.2px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
 }
 
 .aboutText .paragraph {
@@ -72,7 +75,6 @@
   margin-bottom: 2.5rem;
   font-weight: 400;
   letter-spacing: 0.6px;
-  font-family: 'Poppins', sans-serif;
 }
 
 .aboutImage {
@@ -86,8 +88,8 @@
 .aboutImage img {
   width: 100%;
   max-width: 550px;
-  height: 400px;           /* fixed height */
-  object-fit: cover;       /* crop to fill container */
+  height: 400px;
+  object-fit: cover;
   border-radius: 25px;
   box-shadow: 0 16px 40px rgba(244, 67, 88, 0.5);
   transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
@@ -115,7 +117,7 @@
   padding: 2.5rem;
   text-align: center;
   border-radius: 20px;
-  background-color: rgba(255 255 255 / 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: 0 6px 12px rgba(244, 67, 88, 0.15);
@@ -133,7 +135,6 @@
   color: var(--coral-red);
   margin-bottom: 1.2rem;
   text-shadow: 3px 3px 8px var(--warm-yellow);
-  font-family: 'Poppins', sans-serif;
 }
 
 .statLabel {
@@ -142,5 +143,4 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   opacity: 0.85;
-  font-family: 'Poppins', sans-serif;
 }

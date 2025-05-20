@@ -89,7 +89,7 @@ const ContactSection = () => {
         <p className="alt-contact">
           Or email me at{" "}
           <a href="mailto:hello@amandabraga.com" className="email-link">
-            hello@amandabraga.com
+           tsionbantegize@gmail.components
           </a>
         </p>
       </div>

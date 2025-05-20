@@ -12,15 +12,42 @@
   --color-text-dark: #333333;
   --color-text-light: #FFFFFF;
   --color-body-bg: var(--color-light-peach);
+
+  --font-family-base: 'Poppins', sans-serif;
+
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 4rem;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-family-base);
   background-color: var(--color-body-bg);
   color: var(--color-text-dark);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-base);
+  color: var(--color-text-dark);
+  margin-bottom: 1rem;
+}
+
+p {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  margin-bottom: 1rem;
+  color: var(--color-text-dark);
 }
 
 a {
@@ -33,6 +60,7 @@ a:hover {
   color: var(--color-soft-coral);
 }
 
+/* Header */
 .header {
   background-color: var(--color-red-coral);
   padding: 1.5rem 3rem;
@@ -47,11 +75,12 @@ a:hover {
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: var(--font-size-2xl);
   font-weight: 700;
   color: var(--color-text-light);
 }
 
+/* Navigation */
 .nav-menu ul {
   list-style: none;
   margin: 0;
@@ -63,7 +92,7 @@ a:hover {
 .nav-menu li a {
   color: var(--color-text-light);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   padding: 0.5rem 0;
   position: relative;
 }
@@ -85,6 +114,7 @@ a:hover {
   transform: scaleX(1);
 }
 
+/* Hero Section */
 .hero-section {
   background-color: var(--color-light-peach);
   min-height: 80vh;
@@ -97,7 +127,7 @@ a:hover {
 }
 
 .hero-title {
-  font-size: 4.5rem;
+  font-size: var(--font-size-6xl);
   color: var(--color-light-peach);
   margin-bottom: 1.5rem;
   line-height: 1.1;
@@ -105,7 +135,7 @@ a:hover {
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: var(--font-size-xl);
   color: var(--color-text-dark);
   max-width: 700px;
   margin-bottom: 2.5rem;
@@ -117,7 +147,7 @@ a:hover {
   background-color: var(--color-light-teal);
   color: var(--color-text-dark);
   border-radius: 50px;
-  font-size: 1.1rem;
+  font-size: var(--font-size-lg);
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 8px 20px rgba(169, 217, 213, 0.4);
@@ -129,6 +159,7 @@ a:hover {
   box-shadow: 0 12px 25px rgba(245, 157, 126, 0.5);
 }
 
+/* Product Grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -163,14 +194,14 @@ a:hover {
 }
 
 .product-title {
-  font-size: 1.3rem;
+  font-size: var(--font-size-lg);
   font-weight: 600;
   color: var(--color-red-coral);
   margin-bottom: 0.5rem;
 }
 
 .product-price {
-  font-size: 1.1rem;
+  font-size: var(--font-size-base);
   color: var(--color-soft-coral);
   font-weight: 700;
   margin-bottom: 1rem;
@@ -181,7 +212,7 @@ a:hover {
   color: var(--color-text-dark);
   padding: 0.7rem 1.5rem;
   border-radius: 30px;
-  font-size: 0.95rem;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -191,14 +222,16 @@ a:hover {
   color: #fff;
 }
 
+/* Footer */
 .footer {
   background-color: var(--color-red-coral);
   color: var(--color-text-light);
   text-align: center;
   padding: 2.5rem 2rem;
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -209,10 +242,10 @@ a:hover {
     gap: 1rem;
   }
   .hero-title {
-    font-size: 3rem;
+    font-size: var(--font-size-4xl);
   }
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: var(--font-size-base);
   }
   .product-grid {
     padding: 2rem 1rem;

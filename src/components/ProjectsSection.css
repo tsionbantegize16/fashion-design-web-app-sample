@@ -10,11 +10,11 @@
 
 /* Contact Section Container */
 .contact-section {
-  padding: 40px 20px;
+  padding: 20px 10px;   /* reduced padding */
   margin: 0 auto;
-  background-color: var(--primary-peach); /* Light peach background */
-  color: #374151; /* Dark text color for readability */
-  min-height: 100vh;
+  background-color: var(--primary-peach);
+  color: #374151;
+  min-height: 80vh;     /* smaller height */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,22 +24,22 @@
 /* Navigation or header inside Contact Section */
 .top-nav {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
+  top: 10px;     /* reduced distance from top */
+  left: 10px;
+  right: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   z-index: 10;
 }
 
 .nav-button {
-  color: var(--primary-coral); /* Coral color for buttons */
+  color: var(--primary-coral);
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 0.9em;   /* smaller font */
 }
 
 .nav-button:focus {
@@ -49,35 +49,35 @@
 /* Central content inside contact section */
 .central-content {
   text-align: center;
-  max-width: 600px;
-  margin-bottom: 30px;
+  max-width: 500px;    /* narrower max width */
+  margin-bottom: 20px; /* less margin */
   z-index: 10;
 }
 
 .central-content h1 {
-  font-size: 3em;
+  font-size: 2.2em;   /* smaller font */
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: var(--primary-coral);
 }
 
 .central-content p {
-  font-size: 1.1em;
-  line-height: 1.6;
+  font-size: 1em;    /* smaller font */
+  line-height: 1.4;  /* tighter line height */
   margin: 0 auto;
   color: #374151;
 }
 
 /* Call to action button */
 .central-content button {
-  margin-top: 20px;
-  padding: 12px 30px;
+  margin-top: 15px;
+  padding: 10px 25px;  /* smaller padding */
   background: var(--primary-soft-coral);
   color: #374151;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 0.9em;   /* smaller font */
   font-weight: bold;
   transition: background-color 0.3s ease;
   z-index: 10;
@@ -91,33 +91,33 @@
 /* Image arc container */
 .image-arc {
   position: relative;
-  width: 360px;
-  height: 250px;
-  margin: 0 auto 40px auto;
+  width: 320px;      /* smaller width */
+  height: 220px;     /* smaller height */
+  margin: 0 auto 30px auto; /* less bottom margin */
 }
 
 /* Images inside arc */
 .image-arc img {
-  width: 70px;
-  height: 70px;
-  border-radius: 15px;
+  width: 60px;      /* smaller images */
+  height: 60px;
+  border-radius: 12px;
   position: absolute;
   transition: transform 0.3s ease;
-  filter: drop-shadow(0 0 4px var(--primary-teal)); /* subtle teal glow */
+  filter: drop-shadow(0 0 3px var(--primary-teal));
 }
 
 .image-arc img:hover {
   transform: scale(1.1);
   cursor: pointer;
-  filter: drop-shadow(0 0 10px var(--primary-coral)); /* coral glow on hover */
+  filter: drop-shadow(0 0 8px var(--primary-coral));
 }
 
 /* Floating bottom icon */
 .bottom-icon {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  font-size: 2em;
+  bottom: 15px;   /* closer to bottom */
+  right: 15px;
+  font-size: 1.5em; /* smaller icon */
   color: var(--primary-coral);
   cursor: pointer;
   z-index: 10;
