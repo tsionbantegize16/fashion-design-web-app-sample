@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "./ContactSection.css";
 
 const ContactSection = () => {
@@ -26,28 +27,67 @@ const ContactSection = () => {
     }, 1500);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section className="contact-section">
-      <div className="contact-container animate-fadeIn">
-        <h2 className="contact-title">Get In Touch</h2>
-        <form onSubmit={handleSubmit} className="contact-form" noValidate>
-          <label htmlFor="name" className="form-label">
-            Full Name
+    <motion.section
+      className="contact-section"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
+    >
+      <div className="contact-container">
+        <motion.div className="contact-content" variants={itemVariants}>
+          <h2 className="contact-title">Let's Create Together</h2>
+          <p className="contact-subtitle">
+            Have a project in mind? I'd love to hear about it. Let's discuss how we can bring your vision to life.
+          </p>
+        </motion.div>
+
+        <motion.form className="contact-form" onSubmit={handleSubmit} variants={itemVariants}>
+          <div className="form-group">
+            <label htmlFor="name" className="form-label">
+              Your Name
+            </label>
             <input
               id="name"
               name="name"
               type="text"
-              placeholder="Enter your full name"
+              placeholder="Enter your name"
               required
               value={formData.name}
               onChange={handleChange}
               disabled={isSubmitting}
               className="form-input"
             />
-          </label>
+          </div>
 
-          <label htmlFor="email" className="form-label">
-            Email Address
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
+              Email Address
+            </label>
             <input
               id="email"
               name="email"
@@ -59,41 +99,52 @@ const ContactSection = () => {
               disabled={isSubmitting}
               className="form-input"
             />
-          </label>
+          </div>
 
-          <label htmlFor="message" className="form-label">
-            Message
+          <div className="form-group">
+            <label htmlFor="message" className="form-label">
+              Your Message
+            </label>
             <textarea
               id="message"
               name="message"
               rows="5"
-              placeholder="Type your message here..."
+              placeholder="Tell me about your project..."
               required
               value={formData.message}
               onChange={handleChange}
               disabled={isSubmitting}
               className="form-textarea"
             />
-          </label>
+          </div>
 
-          <button
+          <motion.button
             type="submit"
-            className="submit-btn"
+            className="submit-button"
             disabled={isSubmitting}
-            aria-busy={isSubmitting}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {isSubmitting ? "Sending..." : "Send Message"}
-          </button>
-        </form>
+          </motion.button>
+        </motion.form>
 
-        <p className="alt-contact">
-          Or email me at{" "}
-          <a href="mailto:hello@amandabraga.com" className="email-link">
-           tsionbantegize@gmail.components
-          </a>
-        </p>
+        <motion.div className="contact-info" variants={itemVariants}>
+          <div className="info-item">
+            <span className="info-icon">📧</span>
+            <a href="mailto:tsionbantegize@gmail.com" className="info-link">
+              tsionbantegize@gmail.com
+            </a>
+          </div>
+          <div className="info-item">
+            <span className="info-icon">📱</span>
+            <a href="tel:+251995220266" className="info-link">
+              +1 (234) 567-890
+            </a>
+          </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

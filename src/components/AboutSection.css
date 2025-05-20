@@ -52,17 +52,16 @@
 .aboutText .title {
   font-size: 4rem;
   font-weight: 900;
-  color: var(--coral-red);
+  color: #F44358;
   margin-bottom: 2.5rem;
   letter-spacing: 2px;
-  text-shadow: 3px 3px 8px var(--warm-yellow);
-  transform-origin: left;
+  text-shadow: 2px 2px 4px rgba(244, 67, 88, 0.2);
 }
 
 .aboutText .subtitle {
   font-size: 2.2rem;
   font-style: italic;
-  color: var(--teal-light);
+  color: #F59D7E;
   margin-bottom: 2rem;
   opacity: 0.9;
   letter-spacing: 1.2px;
@@ -71,10 +70,11 @@
 
 .aboutText .paragraph {
   color: var(--text-dark);
-  line-height: 2;
-  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
   font-weight: 400;
   letter-spacing: 0.6px;
+  font-size: 1.1rem;
 }
 
 .aboutImage {
@@ -117,30 +117,52 @@
   padding: 2.5rem;
   text-align: center;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: 0 6px 12px rgba(244, 67, 88, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: none;
+  width: 100%;
+  max-width: 300px;
 }
 
 .statItem:hover {
-  background-color: var(--peach-light);
-  transform: translateY(-10px) scale(1.1);
+  background-color: #F44358;
+  transform: translateY(-10px) scale(1.05);
   box-shadow: 0 15px 25px rgba(244, 67, 88, 0.4);
 }
 
-.statNumber {
-  font-size: 4.5rem;
-  font-weight: 900;
-  color: var(--coral-red);
-  margin-bottom: 1.2rem;
-  text-shadow: 3px 3px 8px var(--warm-yellow);
+.statItem:hover .statIcon,
+.statItem:hover .statLabel,
+.statItem:hover .statDescription {
+  color: white;
+}
+
+.statIcon {
+  font-size: 2.5rem;
+  color: #F44358;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
 }
 
 .statLabel {
   font-size: 1.3rem;
-  color: var(--teal-light);
+  color: #F44358;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  opacity: 0.85;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.statDescription {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.4;
+  max-width: 200px;
+  transition: color 0.3s ease;
 }

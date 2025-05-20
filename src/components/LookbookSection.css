@@ -1,0 +1,299 @@
+.lookbook-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #F8D0BF 0%, #F59D7E 100%);
+  min-height: 100vh;
+}
+
+.lookbook-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.lookbook-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3436;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(245, 157, 126, 0.2);
+}
+
+.lookbook-subtitle {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.category-tag {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #F59D7E;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #F59D7E;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(245, 157, 126, 0.1);
+}
+
+.category-tag:hover {
+  transform: translateY(-2px);
+  background: #F59D7E;
+  color: white;
+  box-shadow: 0 4px 8px rgba(245, 157, 126, 0.3);
+}
+
+.category-tag.active {
+  background: #F59D7E;
+  color: white;
+  border-color: #F59D7E;
+  box-shadow: 0 4px 12px rgba(245, 157, 126, 0.3);
+}
+
+.category-tag:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.category-icon {
+  font-size: 1.2rem;
+}
+
+.outfit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.outfit-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(245, 157, 126, 0.15);
+  background: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.outfit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(245, 157, 126, 0.2);
+}
+
+.outfit-image {
+  position: relative;
+  width: 100%;
+  padding-top: 133.33%; /* 4:3 aspect ratio */
+}
+
+.outfit-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.outfit-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.outfit-card:hover .outfit-overlay {
+  transform: translateY(0);
+}
+
+.outfit-card:hover .outfit-image img {
+  transform: scale(1.1);
+}
+
+.outfit-overlay h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.outfit-category {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.outfit-description {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+/* Modal Styles */
+.outfit-details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(245, 157, 126, 0.2);
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.modal-details {
+  padding: 1rem;
+}
+
+.modal-details h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 1rem;
+}
+
+.modal-details .category {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #F59D7E;
+  color: white;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.modal-details .description {
+  font-size: 1rem;
+  color: #636e72;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.modal-details .season {
+  font-size: 0.875rem;
+  color: #b2bec3;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #2d3436;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #f1f2f6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .lookbook-section {
+    padding: 2rem 1rem;
+  }
+
+  .lookbook-title {
+    font-size: 2rem;
+  }
+
+  .category-tags {
+    gap: 0.5rem;
+  }
+
+  .category-tag {
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .outfit-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .modal-content {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .modal-details {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lookbook-title {
+    font-size: 1.75rem;
+  }
+
+  .lookbook-subtitle {
+    font-size: 1rem;
+  }
+
+  .category-tag {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .outfit-grid {
+    grid-template-columns: 1fr;
+  }
+} 

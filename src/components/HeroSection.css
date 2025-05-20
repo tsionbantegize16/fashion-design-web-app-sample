@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(135deg, #F44358, #F59D7E); /* Coral to Soft Coral */
+  background: linear-gradient(135deg, #FFEDE6, #F9B5AC); /* Light Peach to Soft Coral */
   cursor: default;
   display: flex;
   align-items: center;
@@ -16,7 +16,7 @@
 .hero-content {
   position: relative;
   z-index: 10;
-  color: #F8D0BF; /* Light Peach for main text */
+  color: #4A4A4A;
 }
 
 .hero-title {
@@ -24,13 +24,15 @@
   font-size: 3.5rem;
   letter-spacing: 1px;
   margin-bottom: 1rem;
-  color: #F8D0BF; /* Light Peach */
-  text-shadow: 1px 1px 4px #F44358; /* Coral shadow for contrast */
+  background: linear-gradient(135deg, #F44358);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: #F7D897; /* Pale Yellow/Orange */
+  color: #6B6B6B;
   font-weight: 300;
 }
 

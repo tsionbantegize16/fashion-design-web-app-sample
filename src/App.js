@@ -6,6 +6,9 @@ import ProjectsSection from "./components/ProjectsSection";
 import ContactSection from "./components/ContactSection";
 import Navigation from "./components/Navigation";
 import "./App.css";
+import LookbookSection from './components/LookbookSection';
+import TrendSpotlight from './components/TrendSpotlight';
+import DesignersNote from './components/DesignersNote';
 
 import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
@@ -73,16 +76,38 @@ function App() {
       </header>
 
       <main className="pt-20">
+        {/* 1. Hero Section - First Impression */}
         <section id="hero" className="w-full min-h-screen flex items-center justify-center">
           <HeroSection />
         </section>
-        <section id="about" className="w-full min-h-screen flex items-center justify-center bg-gray-800">
+
+        {/* 2. Designer's Note - Personal Connection */}
+        <section id="designersnote" className="w-full min-h-screen flex items-center justify-center bg-gray-800">
+          <DesignersNote />
+        </section>
+
+        {/* 3. Trend Spotlight - Current Relevance */}
+        <section id="trendspotlight" className="w-full min-h-screen flex items-center justify-center bg-gray-900">
+          <TrendSpotlight />
+        </section>
+
+        {/* 4. Lookbook - Visual Inspiration */}
+        <section id="lookbook" className="w-full min-h-screen flex items-center justify-center bg-gray-800">
+          <LookbookSection />
+        </section>
+
+        {/* 5. About Section - Brand Story */}
+        <section id="about" className="w-full min-h-screen flex items-center justify-center bg-gray-900">
           <AboutSection />
         </section>
-        <section id="projects" className="w-full min-h-screen flex items-center justify-center bg-gray-900">
+
+        {/* 6. Projects Section - Portfolio */}
+        <section id="projects" className="w-full min-h-screen flex items-center justify-center bg-gray-800">
           <ProjectsSection />
         </section>
-        <section id="contact" className="w-full min-h-screen flex items-center justify-center bg-gray-800">
+
+        {/* 7. Contact Section - Call to Action */}
+        <section id="contact" className="w-full min-h-screen flex items-center justify-center bg-gray-900">
           <ContactSection />
         </section>
       </main>

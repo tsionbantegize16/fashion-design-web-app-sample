@@ -8,7 +8,7 @@ import img4 from '../assets/images/image4.jpg';
 import img5 from '../assets/images/image5.jpg';
 import img6 from '../assets/images/image6.jpg';
 
-const jewelryImages = [img1, img2, img3, img4,img5, img6];
+const jewelryImages = [img1, img2, img3, img4, img5, img6];
 const MAX_TRAIL = 10;
 const IMAGE_DELAY = 200; // ms between images
 const TRAIL_HIDE_DELAY = 1500; // ms to hide trail when idle

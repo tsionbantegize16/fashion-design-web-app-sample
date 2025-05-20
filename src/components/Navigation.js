@@ -1,37 +1,62 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import './Navigation.css';
 
 const Navigation = () => {
-  const [active, setActive] = useState('about');
+  const [active, setActive] = useState('hero');
 
-  const scrollToSection = (e, id) => {
-    e.preventDefault();
-    setActive(id);
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+  const navItems = [
+    { id: 'hero', label: 'Home' },
+    { id: 'designersnote', label: 'Designer' },
+    { id: 'trendspotlight', label: 'Trends' },
+    { id: 'lookbook', label: 'Lookbook' },
+    { id: 'about', label: 'About' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
+  const scrollToSection = (sectionId) => {
+    setActive(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <aside className="navigation">
-      <nav>
-        <ul>
-          {['about', 'projects', 'contact'].map((section) => (
-            <li key={section}>
-              <a
-                href={`#${section}`}
-                onClick={(e) => scrollToSection(e, section)}
-                className={active === section ? 'active' : ''}
-                aria-current={active === section ? 'page' : undefined}
+    <nav className="navigation">
+      <div className="nav-container">
+        <motion.div 
+          className="logo"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => scrollToSection('hero')}
+        >
+          <span className="logo-text">TSION</span>
+        </motion.div>
+
+        <ul className="nav-links">
+          {navItems.map((item) => (
+            <li key={item.id}>
+              <motion.button
+                className={`nav-link ${active === item.id ? 'active' : ''}`}
+                onClick={() => scrollToSection(item.id)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </a>
+                {item.label}
+              </motion.button>
             </li>
           ))}
         </ul>
-      </nav>
-    </aside>
+
+        <div className="social-links">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link">
+            Instagram
+          </a>
+        </div>
+      </div>
+    </nav>
   );
 };
 

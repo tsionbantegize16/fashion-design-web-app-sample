@@ -2,8 +2,16 @@
 import React from "react";
 import "./AboutSection.css";
 import { motion } from "framer-motion";
+import { FaTshirt, FaPalette, FaStar, FaUsers } from 'react-icons/fa';
 
 const AboutSection = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const imageVariants = {
     initial: { opacity: 0, x: -50, rotate: -5 },
     animate: { opacity: 1, x: 0, rotate: 0 },
@@ -40,16 +48,16 @@ const AboutSection = () => {
           initial="initial"
           animate="animate"
         >
-          <h2 className="title">Our Fashion & Makeup</h2>
-          <h3 className="subtitle">Style Meets Confidence</h3>
+          <h2 className="title">Fashion Collection</h2>
+          <h3 className="subtitle">Where Style Meets Innovation</h3>
           <p className="paragraph">
-            Discover fashion and beauty crafted to express your unique style and boost confidence.
+            Discover our exclusive collection of fashion designs that blend contemporary trends with timeless elegance. Each piece is crafted with meticulous attention to detail and premium quality materials.
           </p>
           <p className="paragraph">
-            From trends to timeless looks, we inspire creativity and natural beauty.
+            Our designs celebrate individuality and self-expression, offering versatile pieces that transition seamlessly from day to night. From statement pieces to everyday essentials, we create fashion that empowers and inspires.
           </p>
           <p className="paragraph">
-            Celebrate diversity and express yourself with our curated styles.
+            Experience the perfect fusion of comfort, style, and sophistication in every garment. Our commitment to sustainable practices and ethical production ensures that your fashion choices make a positive impact.
           </p>
         </motion.div>
         <motion.div
@@ -61,7 +69,7 @@ const AboutSection = () => {
         >
           <img
             src="https://www.bellanaijastyle.com/wp-content/uploads/2019/05/30Divalukky-Presents-22The-Movement-of-Modern-Whimsical-Romance.jpeg"
-            alt="Fashion and Makeup"
+            alt="Fashion Collection"
           />
         </motion.div>
       </div>
@@ -73,20 +81,42 @@ const AboutSection = () => {
         animate="animate"
       >
         {[
-          { emoji: "💄", label: "Beauty Looks" },
-          { emoji: "👗", label: "Fashion Styles" },
-          { emoji: "🔥", label: "Unique Trends" },
-          { emoji: "💪", label: "Confidence Boost" },
+          { 
+            icon: <FaTshirt className="statIcon" />, 
+            label: "Premium Designs",
+            description: "Handcrafted pieces with attention to detail",
+            sectionId: "premium-designs"
+          },
+          { 
+            icon: <FaPalette className="statIcon" />, 
+            label: "Unique Collections",
+            description: "Exclusive styles for every occasion",
+            sectionId: "collections"
+          },
+          { 
+            icon: <FaStar className="statIcon" />, 
+            label: "Quality Craftsmanship",
+            description: "Superior materials and expert tailoring",
+            sectionId: "craftsmanship"
+          },
+          { 
+            icon: <FaUsers className="statIcon" />, 
+            label: "Customer Satisfaction",
+            description: "Dedicated to exceeding expectations",
+            sectionId: "testimonials"
+          },
         ].map((item, index) => (
-          <motion.div
+          <motion.button
             key={index}
             className="statItem"
             variants={statItemVariants}
             whileHover="hover"
+            onClick={() => scrollToSection(item.sectionId)}
           >
-            <div className="statNumber">{item.emoji}</div>
+            <div className="statIcon">{item.icon}</div>
             <div className="statLabel">{item.label}</div>
-          </motion.div>
+            <div className="statDescription">{item.description}</div>
+          </motion.button>
         ))}
       </motion.div>
     </motion.section>
