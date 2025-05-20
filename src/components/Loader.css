@@ -1,3 +1,13 @@
+/* Define your new loader specific colors in root, or at least for this component */
+:root {
+  /* Using a color from the new palette for the background */
+  --loader-bg-color: #F8D0BF; /* Light Peach for the loader background */
+  --bubble-color-1: #F44358; /* Red/Coral */
+  --bubble-color-2: #F59D7E; /* Soft Coral */
+  --bubble-color-3: #A9D9D5; /* Light Teal/Blue (for a contrast/pop) */
+  --bubble-color-4: #F7D897; /* Pale Yellow/Orange (another pop) */
+}
+
 .loader-wrapper {
   position: fixed;
   top: 0;
@@ -5,7 +15,8 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: #111827; /* dark bg */
+  /* Changed background-color to Light Peach from your new palette */
+  background-color: var(--loader-bg-color);
   z-index: 9999;
 }
 
@@ -14,9 +25,20 @@
   position: absolute;
   bottom: 0;
   border-radius: 50%;
-  background-color: #4299e1; /* Tailwind blue-500 */
+  /* Using one of the new colors for the default bubble color */
+  background-color: var(--bubble-color-2); /* Soft Coral as a default */
   opacity: 0.7;
 }
+
+/*
+   To use multiple bubble colors, you'd typically apply different classes
+   or inline styles to individual bubble elements in your HTML/React component.
+*/
+.bubble-red-coral { background-color: var(--bubble-color-1); }
+.bubble-soft-coral { background-color: var(--bubble-color-2); }
+.bubble-teal-blue { background-color: var(--bubble-color-3); } /* Original Teal/Blue from palette */
+.bubble-pale-yellow { background-color: var(--bubble-color-4); }
+
 
 /* Floating animation */
 @keyframes floatUp {

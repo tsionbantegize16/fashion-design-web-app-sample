@@ -1,25 +1,28 @@
 import React from "react";
 import "./AboutSection.css";
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const AboutSection = () => {
-  const textControls = useAnimation();
-
-  useEffect(() => {
-    const sequence = async () => {
-      await textControls.start({ opacity: 0, y: 20 });
-      await textControls.start({ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.5, ease: "easeOut" } });
-      await textControls.start({ scale: 1.02, transition: { duration: 0.4, yoyo: Infinity } });
-    };
-
-    sequence();
-  }, [textControls]);
-
   const imageVariants = {
+    initial: { opacity: 0, x: -50, rotate: -5 },
+    animate: { opacity: 1, x: 0, rotate: 0 },
+    hover: { scale: 1.05, rotate: 3 },
+  };
+
+  const textVariants = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0, transition: { delay: 0.3 } },
+  };
+
+  const statsVariants = {
     initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeInOut" } },
-    hover: { scale: 1.05 },
+    animate: { opacity: 1, scale: 1, transition: { staggerChildren: 0.2 } },
+  };
+
+  const statItemVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    hover: { scale: 1.1, y: -5 },
   };
 
   return (
@@ -30,31 +33,27 @@ const AboutSection = () => {
       animate={{ opacity: 1, transition: { duration: 0.8 } }}
     >
       <div className="aboutContainer">
-        <motion.div className="aboutText" animate={textControls}>
-          <motion.h2 className="title" style={{ originX: 0 }} animate={{ scaleX: [0, 1], transition: { duration: 0.6, ease: "easeInOut" } }}>
-            Echoes of Creation
-          </motion.h2>
-          <motion.h3 className="subtitle" animate={{ x: [50, 0], opacity: [0, 1], transition: { duration: 0.7, delay: 0.3, ease: "easeOut" } }}>
-            Where Imagination Takes Form
-          </motion.h3>
-          <motion.p className="paragraph" animate={{ opacity: [0, 1], y: [30, 0], transition: { duration: 0.9, delay: 0.6, ease: "easeOut" } }}>
-            In the heart of our atelier, stories unfold through the language of form and texture. We are captivated
-            by the subtle whispers of inspiration that echo from the natural world and the vibrant pulse of human
-            innovation. Our process is a dance between intuition and precision, where every detail is imbued with
-            purpose and passion.
-          </motion.p>
-          <motion.p className="paragraph" animate={{ opacity: [0, 1], y: [30, 0], transition: { duration: 0.9, delay: 0.7, ease: "easeOut" } }}>
-            We delve into the alchemy of materials, exploring their inherent qualities to unlock new dimensions of
-            expression. From the smooth caress of polished metal to the intricate weave of handcrafted fibers, each
-            element contributes to a symphony of sensory experiences. Our creations are not merely objects; they are
-            tangible fragments of our creative soul.
-          </motion.p>
-          <motion.p className="paragraph" animate={{ opacity: [0, 1], y: [30, 0], transition: { duration: 0.9, delay: 0.8, ease: "easeOut" } }}>
-            The journey of discovery knows no bounds. We traverse cultural landscapes, gather fragments of ancient
-            wisdom, and embrace the avant-garde spirit of contemporary design. These explorations enrich our
-            perspective, allowing us to craft pieces that resonate with a global audience while retaining a unique
-            and deeply personal touch.
-          </motion.p>
+        <motion.div className="aboutText" variants={textVariants} initial="initial" animate="animate">
+          <h2 className="title">Our Artistic Journey</h2>
+          <h3 className="subtitle">A Symphony of Creativity</h3>
+          <p className="paragraph">
+            Step into our world, where every creation is a brushstroke on the canvas of imagination.
+            We are driven by a passion for beauty in its myriad forms, from the subtle dance of colors
+            to the intricate poetry of textures. Our journey is a constant exploration, a quest to
+            transform the ordinary into the extraordinary.
+          </p>
+          <p className="paragraph">
+            Inspired by the fluid lines of nature and the sharp precision of geometry, we weave together
+            unique narratives in every piece. Each design is a testament to the meticulous craft and
+            the boundless curiosity that fuels our artistic spirit. We invite you to discover the stories
+            embedded within our creations.
+          </p>
+          <p className="paragraph">
+            Traveling the globe, immersing ourselves in diverse cultures, and absorbing the essence
+            of different languages – these are the threads that enrich our creative tapestry. This
+            exploration is not just a pastime; it's a vital source of inspiration that breathes life
+            into our artistic vision.
+          </p>
         </motion.div>
         <motion.div
           className="aboutImage"
@@ -63,32 +62,37 @@ const AboutSection = () => {
           animate="animate"
           whileHover="hover"
         >
-          <img
-            src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGFydGlzdHxlbnwwfHwwfHww&auto=format&fit=crop&w=800&q=60"
-            alt="Artistic Workspace"
-          />
+          <div className="imageSlider">
+            {/* Replace with your actual image and consider a more artistic visual */}
+            <img
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXJ0aXN0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+              alt="Artistic Representation"
+            />
+            {/* You could add more images and slider functionality here */}
+          </div>
         </motion.div>
       </div>
       <motion.div
         className="statsContainer"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0, transition: { staggerChildren: 0.4, delay: 1 } }}
+        variants={statsVariants}
+        initial="initial"
+        animate="animate"
       >
-        <motion.div className="statItem" whileHover={{ scale: 1.1, y: -5 }}>
+        <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
           <div className="statNumber">∞</div>
-          <div className="statLabel">Infinite Ideas</div>
+          <div className="statLabel">Inspiration</div>
         </motion.div>
-        <motion.div className="statItem" whileHover={{ scale: 1.1, y: -5 }}>
+        <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
+          <div className="statNumber">🎨</div>
+          <div className="statLabel">Creative Visions</div>
+        </motion.div>
+        <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
           <div className="statNumber">✨</div>
-          <div className="statLabel">Artistic Innovation</div>
+          <div className="statLabel">Unique Expressions</div>
         </motion.div>
-        <motion.div className="statItem" whileHover={{ scale: 1.1, y: -5 }}>
-          <div className="statNumber">💫</div>
-          <div className="statLabel">Crafted Uniqueness</div>
-        </motion.div>
-        <motion.div className="statItem" whileHover={{ scale: 1.1, y: -5 }}>
-          <div className="statNumber">🌍</div>
-          <div className="statLabel">Global Resonance</div>
+        <motion.div className="statItem" variants={statItemVariants} whileHover="hover">
+          <div className="statNumber">🗺️</div>
+          <div className="statLabel">Global Influences</div>
         </motion.div>
       </motion.div>
     </motion.section>
