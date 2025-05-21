@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Navigation.css';
+import logoImage from '../assets/images/logo.png';
 
 const Navigation = () => {
   const [active, setActive] = useState('hero');
 
   const navItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'designersnote', label: 'Designer' },
-    { id: 'trendspotlight', label: 'Trends' },
-    { id: 'lookbook', label: 'Lookbook' },
     { id: 'about', label: 'About' },
+    { id: 'designersnote', label: 'Designer' },
+    { id: 'lookbook', label: 'Lookbook' },
+    { id: 'trendspotlight', label: 'Trends' },
     { id: 'projects', label: 'Collection' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -32,7 +33,7 @@ const Navigation = () => {
           whileTap={{ scale: 0.95 }}
           onClick={() => scrollToSection('hero')}
         >
-          <span className="logo-text">TSION</span>
+          <img src={logoImage} alt="Fashion Logo" className="logo-image" />
         </motion.div>
 
         <ul className="nav-links">

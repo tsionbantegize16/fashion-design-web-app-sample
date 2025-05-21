@@ -82,14 +82,14 @@ function App() {
           <HeroSection />
         </section>
 
-        {/* 2. Designer's Note - Personal Connection */}
-        <section id="designersnote" className="w-full min-h-screen flex items-center justify-center bg-gray-800">
-          <DesignersNote />
+        {/* 2. About Section - Brand Story */}
+        <section id="about" className="w-full min-h-screen flex items-center justify-center bg-gray-900">
+          <AboutSection />
         </section>
 
-        {/* 3. Trend Spotlight - Current Relevance */}
-        <section id="trendspotlight" className="w-full min-h-screen flex items-center justify-center bg-gray-900">
-          <TrendSpotlight />
+        {/* 3. Designer's Note - Personal Connection */}
+        <section id="designersnote" className="w-full min-h-screen flex items-center justify-center bg-gray-800">
+          <DesignersNote />
         </section>
 
         {/* 4. Lookbook - Visual Inspiration */}
@@ -97,9 +97,9 @@ function App() {
           <LookbookSection />
         </section>
 
-        {/* 5. About Section - Brand Story */}
-        <section id="about" className="w-full min-h-screen flex items-center justify-center bg-gray-900">
-          <AboutSection />
+        {/* 5. Trend Spotlight - Current Relevance */}
+        <section id="trendspotlight" className="w-full min-h-screen flex items-center justify-center bg-gray-900">
+          <TrendSpotlight />
         </section>
 
         {/* 6. Projects Section - Portfolio */}
