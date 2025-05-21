@@ -5,6 +5,7 @@ import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ContactSection from "./components/ContactSection";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 import "./App.css";
 import LookbookSection from './components/LookbookSection';
 import TrendSpotlight from './components/TrendSpotlight';
@@ -112,9 +113,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="text-center py-6 text-sm text-gray-400 border-t border-gray-700 mt-10">
-        © {new Date().getFullYear()} Tsion Bantegize. All rights reserved.
-      </footer>
+      <Footer />
     </div>
   );
 }

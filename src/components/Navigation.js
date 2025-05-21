@@ -11,7 +11,7 @@ const Navigation = () => {
     { id: 'trendspotlight', label: 'Trends' },
     { id: 'lookbook', label: 'Lookbook' },
     { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
+    { id: 'projects', label: 'Collection' },
     { id: 'contact', label: 'Contact' }
   ];
 
