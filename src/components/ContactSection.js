@@ -128,21 +128,6 @@ const ContactSection = () => {
             {isSubmitting ? "Sending..." : "Send Message"}
           </motion.button>
         </motion.form>
-
-        <motion.div className="contact-info" variants={itemVariants}>
-          <div className="info-item">
-            <span className="info-icon">📧</span>
-            <a href="mailto:tsionbantegize@gmail.com" className="info-link">
-              tsionbantegize@gmail.com
-            </a>
-          </div>
-          <div className="info-item">
-            <span className="info-icon">📱</span>
-            <a href="tel:+251995220266" className="info-link">
-              +1 (234) 567-890
-            </a>
-          </div>
-        </motion.div>
       </div>
     </motion.section>
   );
