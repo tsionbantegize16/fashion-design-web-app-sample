@@ -24,8 +24,15 @@ const DesignersNote = () => {
     }
   };
 
+  const scrollToCollection = () => {
+    const collectionSection = document.getElementById('projects');
+    if (collectionSection) {
+      collectionSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="designers-note">
+    <section className="designers-note" onClick={scrollToCollection}>
       <motion.div 
         className="note-container"
         initial="hidden"

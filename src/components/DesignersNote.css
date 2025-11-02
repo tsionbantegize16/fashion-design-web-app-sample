@@ -1,55 +1,60 @@
 .designers-note {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, var(--warm-yellow), var(--peach-light));
+  background: linear-gradient(135deg, #F8D0BF, #F59D7E);
   min-height: 80vh;
   display: flex;
   align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.designers-note:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(244, 67, 88, 0.2);
 }
 
 .note-container {
   max-width: 1200px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 30px;
-  padding: 4rem;
-  box-shadow: 0 20px 40px rgba(244, 67, 88, 0.2);
-  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(244, 67, 88, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.designers-note:hover .note-container {
+  transform: scale(1.02);
 }
 
 .note-content {
-  max-width: 800px;
-  margin: 0 auto;
+  text-align: center;
 }
 
 .note-title {
-  font-size: 3rem;
-  font-weight: 900;
-  color: var(--coral-red);
+  font-size: 2.5rem;
+  color: #F44358;
   margin-bottom: 2rem;
-  text-align: center;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(244, 67, 88, 0.2);
+  font-weight: 700;
 }
 
 .note-text {
-  margin-bottom: 3rem;
+  max-width: 800px;
+  margin: 0 auto 3rem;
 }
 
 .note-text p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--text-dark);
+  color: #4a4a4a;
   margin-bottom: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
 }
 
 .designer-signature {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
-  padding-top: 2rem;
-  border-top: 2px solid rgba(244, 67, 88, 0.2);
+  margin-top: 3rem;
 }
 
 .designer-image {
@@ -57,22 +62,23 @@
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--coral-red);
-  box-shadow: 0 10px 20px rgba(244, 67, 88, 0.3);
+  border: 3px solid #F44358;
+  transition: transform 0.3s ease;
+}
+
+.designers-note:hover .designer-image {
+  transform: scale(1.1);
 }
 
 .signature-text h3 {
   font-size: 1.5rem;
-  color: var(--coral-red);
+  color: #F44358;
   margin-bottom: 0.5rem;
-  font-weight: 600;
 }
 
 .signature-text p {
+  color: #666;
   font-size: 1rem;
-  color: var(--text-dark);
-  opacity: 0.8;
-  font-style: italic;
 }
 
 @media (max-width: 768px) {
@@ -85,11 +91,16 @@
   }
 
   .note-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .note-text p {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .designer-signature {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
